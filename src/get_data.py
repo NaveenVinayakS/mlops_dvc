@@ -21,6 +21,7 @@ def get_data(config_path):
     df = pd.read_csv(data_path,sep=",",encoding = 'utf-8')
     #print(df.head())
     return df
+# simple comment
 
 
 if __name__ == "__main__":

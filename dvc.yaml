@@ -1,1 +1,23 @@
+  #after performing the replace operation in csv and saving it in RAW folder now we update
+# dvc.yaml
 stages:
+  load_data:
+  # terminal command to execute
+    cmd: python src/load_data.py --config=params.yaml
+    # dependency for load_data.py
+    deps:
+    - src/get_data.py
+    - src/load_data.py
+    - data_given/winequality.csv
+  # output -> csv file present in raw folder
+    outs:
+    - data/raw/winequality.csv
+  # execute with  -> "dvc repro"
+  # this command will generate dvc.lock file will contain dependency mentioned will be tracked as a code
+  # if we execute it again it will say data and pipelines are uptodate (if no changes are made in data or load_data.py)
+    #'data_given/winequality.csv.dvc' didn't change, skipping
+    #Stage 'load_data' didn't change, skipping
+    #Data and pipelines are up to date.
+
+  # if changes made , if sense the changes and rerun the pipeline
+    # even dvc.loc file contains the size of thee file also
