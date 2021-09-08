@@ -26,3 +26,7 @@ dvc init
 
 data add data_given/winewuality.csv
 
+git add .
+
+git commit -m "first commit"
+
