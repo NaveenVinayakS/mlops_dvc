@@ -1,0 +1,3 @@
+after creating the py file just run "dvc repro" in terminal it will automaticall execute the "python <filename.py>" 
+
+just a pipeline executing that "dvc repro" execute all the stages in dvc.yaml.
