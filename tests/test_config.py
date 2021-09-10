@@ -15,7 +15,7 @@ def test_generic(): # function name must start with TEST
     # collected from -rrequirements.txt , command is "tox" if any changes in requirement the "tox -r"
     a=5
     with pytest.raises(NotInRange):
-        if a not in range(10,20):
+        if a not in range(10, 20):
             raise NotInRange
     # OR
     #try:
