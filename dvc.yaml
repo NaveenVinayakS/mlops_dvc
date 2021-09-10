@@ -45,7 +45,7 @@ stages:
     - estimators.ElasticNet.params.l1_ratio
     metrics:
     - report/scores.json:
-        cache: false
+        cache: false #cache memory
     - report/params.json:
         cache: false
     outs:
