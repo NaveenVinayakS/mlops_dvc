@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-# name is just a NAME
+# name is just a NAME , name given to steps
     - name: Set up Python 3.7
       uses: actions/setup-python@v2
       with:
