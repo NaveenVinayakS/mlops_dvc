@@ -23,3 +23,10 @@ def test_generic(): # function name must start with TEST
     #        raise NotInRange
     #except Exception as e:
     #    print(e)
+
+# another example
+# function name must start only with test
+def test_something():
+    a=2
+    b=2
+    assert True
