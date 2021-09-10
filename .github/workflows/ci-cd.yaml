@@ -25,8 +25,8 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.7
-    - name: Install dependencies
 # running certain commands installing -> "flake8, pytest, requirement"
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
@@ -47,13 +47,13 @@ jobs:
 
 # now contineous deployment
 # deploying to heroku
-#    - name: Deploy to Heroku
-#      env:
-#        HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-#        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-#      if: github.ref == 'refs/heads/main' && job.status == 'success'
+    - name: Deploy to Heroku
+      env:
+        HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+      if: github.ref == 'refs/heads/main' && job.status == 'success'
       # main branch
       # in main branch if JOB is success then only this run will execute
-#      run: |
-#        git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
-#        git push heroku HEAD:main -f
+      run: |
+        git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
+        git push heroku HEAD:main -f
