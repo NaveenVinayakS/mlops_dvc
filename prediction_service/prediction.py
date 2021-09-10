@@ -33,8 +33,10 @@ def predict(data):
     prediction = model.predict(data).tolist()[0]
     try:
         if 3 <= prediction <= 8:
+            #print("prediction :-",prediction)
             return prediction
         else:
+            #print("not in range")
             raise NotInRange
     except NotInRange:
         return "Unexpected result"
@@ -48,9 +50,12 @@ def get_schema(schema_path=schema_path):
 
 def validate_input(dict_request):
     def _validate_cols(col):
+        #print("cols :-",col)
         schema = get_schema()
         actual_cols = schema.keys()
+        #print("actual cols :-",actual_cols)
         if col not in actual_cols:
+            #print("naveen not in cols")
             raise NotInCols
 
     def _validate_values(col, val):

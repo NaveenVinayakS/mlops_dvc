@@ -20,6 +20,7 @@ def index():
             if request.form:
                 dict_req = dict(request.form)
                 response = prediction.form_response(dict_req)
+                print("response",response)
                 return render_template("index.html", response=response)
             elif request.json:
                 response = prediction.api_response(request.json)
