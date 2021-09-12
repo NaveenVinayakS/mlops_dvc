@@ -3,6 +3,7 @@
 stages:
   load_data:
   # terminal command to execute
+  # mustn't have space between "--" and "config"-> "-- config"(wrong) -> "--config"() correct
     cmd: python src/load_data.py --config=params.yaml
     # dependency for load_data.py
     deps:
@@ -52,7 +53,8 @@ stages:
     #outs:
     #- saved_models/model.joblib
 
-  #log predictionmodel:
-  #  cmd: python src/log_production_model.py -- config=params.yaml
-  #  deps:
-  #    - src/log_production_model.py
+  log predictionmodel:
+    cmd: python src/log_production_model.py --config=params.yaml
+#    cmd: python src/train_and_evaluate.py --config=params.yaml
+    deps:
+      - src/log_production_model.py

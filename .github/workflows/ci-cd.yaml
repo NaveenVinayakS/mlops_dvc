@@ -6,6 +6,7 @@ on:
   push:
     branches:
     - main
+    #- main-mlflow
     # name of branch
   pull_request:
     branches:
