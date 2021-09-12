@@ -5,13 +5,13 @@ name: Python application
 on:
   push:
     branches:
-    - main
-    #- main-mlflow
+    #- main
+    - main-mlflow
     # name of branch
   pull_request:
     branches:
-    - main
-
+    #- main
+    - main-mlflow
 jobs:
   build:
 # ubuntu latest version
@@ -52,7 +52,7 @@ jobs:
       env:
         HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      if: github.ref == 'refs/heads/main' && job.status == 'success'
+      if: github.ref == 'refs/heads/main-mlflow' && job.status == 'success'
       # main branch
       # in main branch if JOB is success then only this run will execute
       run: |
