@@ -7,6 +7,7 @@ import numpy as np
 params_path = "params.yaml"
 schema_path = os.path.join("prediction_service", "schema_in.json")
 
+#The super() function is used to give access to methods and properties of a parent or sibling class.
 
 class NotInRange(Exception):
     def __init__(self, message="Values entered are not in expected range"):
@@ -33,6 +34,7 @@ def predict(data):
     prediction = model.predict(data).tolist()[0]
     try:
         if 3 <= prediction <= 8:
+            # why between 3 to 8 because the target variable has value between 3 to 8
             #print("prediction :-",prediction)
             return prediction
         else:
